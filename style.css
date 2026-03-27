@@ -1,11 +1,11 @@
 body {
-    font-family : Arial, sans-serif;
-    background-color : #f4f4f4;
+    font-family : Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color : #e6dfdf;
     padding : 20px;
 }
 
 header {
-    background-color : #333;
+    background-color : #867f7f;
     color : #fff;
     padding : 10px 0;
     text-align : center;
@@ -13,7 +13,7 @@ header {
 
 #product-container {
     display : grid;
-    grid-template-columns : repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns : repeat(auto-fit, minmax(300px, 1fr));
     gap : 20px;
     max-width : 1200px;
     margin-top : 20px;
