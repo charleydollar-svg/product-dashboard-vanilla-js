@@ -25,7 +25,28 @@ async function fetchProductsAsync() {
     }
 }
 
-displayProducts(products) {
+function displayProducts(products) {
     const productContainer = document.getElementById('product-container');
 
-    const featuredProducts = products.filter(product => product.fields.featured);
+    const featuredProducts = products.slice(0, 5); // Get the first 5 products
+    featuredProducts.forEach(product => {
+        const { name, price, image } = product.fields;
+        const imageUrl = image[0].url;
+        const formattedPrice = (price / 100).toFixed(2); // Convert price from cents to dollars
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.innerHTML = `
+            <img src="${imageUrl}" alt="${name}">
+            <h2>${name}</h2>
+            <p>$${formattedPrice}</p>
+        `;
+        productContainer.appendChild(productElement);
+    });
+}
+
+function handleError(error) {
+    console.error('Error fetching products:', error);
+}
+
+fetchProductsThen();
+fetchProductsAsync();
