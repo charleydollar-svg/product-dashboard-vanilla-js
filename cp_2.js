@@ -1,5 +1,5 @@
 function fetchProductsThen() {
-    fetch(apiURL = 'https://www.course-api.com/javascript-store-products')
+    fetch('https://www.course-api.com/javascript-store-products')
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok ' + response.statusText);
             return response.json();
@@ -15,7 +15,7 @@ function fetchProductsThen() {
 
 async function fetchProductsAsync() {
     try {
-        const response = await fetch(apiURL = 'https://www.course-api.com/javascript-store-products');
+        const response = await fetch('https://www.course-api.com/javascript-store-products');
         if (!response.ok) throw new Error('Network response was not ok ' + response.statusText);
         const products = await response.json();
         displayProducts(products);
@@ -34,7 +34,7 @@ function displayProducts(products) {
         const imageUrl = image[0].url;
         const formattedPrice = (price / 100).toFixed(2); // Convert price from cents to dollars
         const productElement = document.createElement('div');
-        productElement.classList.add('product');
+        productElement.classList.add('product-card');
         productElement.innerHTML = `
             <img src="${imageUrl}" alt="${name}">
             <h2>${name}</h2>
